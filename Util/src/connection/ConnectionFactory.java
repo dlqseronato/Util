@@ -31,26 +31,24 @@ public abstract class ConnectionFactory<V> {
 		}
 		return conn;
 	}
-
+	
 	public Connection getConnectionCustom(V connName) throws ClassNotFoundException {
 		Connection conn = null;
 		try {
-			ConnectionParams cp = new ConnectionParams("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/polygon_owner", "POLYGON_OWNER", "Kindor*123");
+			ConnectionParams cp = new ConnectionParams("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/POLYGON_OWNER?useSSL=false", "root", "Kindor*123");
 			if(cp != null) {
-				Class.forName(cp.getDriver());
+				//Class.forName(cp.getDriver());
 				conn = DriverManager.getConnection(cp.getUrl(), cp.getUser(), cp.getPassword());
 				conn.setAutoCommit(false);
-			}else {
-				throw new FileNotFoundException(this.getClass()+" - Nao foi encontrado um arquivo de DBPOOL com o nome "+connName+ ". Favor verificar se o arquivo existe na sua pasta relacionada a variavel ambiente CONFIG_BD_DIR");
 			}
 
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		} 
 		return conn;
 	}
+	
+
 
 }

@@ -29,7 +29,7 @@ public abstract class AbstractDAO<T, U, V> extends ConnectionFactory<V> implemen
 
 			} else {
 
-				throw new Exception("O Statement está nulo, não é possível efetuar a operação.");
+				throw new Exception("O Statement estï¿½ nulo, nï¿½o ï¿½ possï¿½vel efetuar a operaï¿½ï¿½o.");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,7 +74,7 @@ public abstract class AbstractDAO<T, U, V> extends ConnectionFactory<V> implemen
 				}
 				return retorno;
 			} else {
-				throw new Exception("O Statement está nulo, não é possível efetuar a operação.");
+				throw new Exception("O Statement estï¿½ nulo, nï¿½o ï¿½ possï¿½vel efetuar a operaï¿½ï¿½o.");
 			}
 		} catch (Exception e) {
 			ultimaExcecao = e;
@@ -119,7 +119,7 @@ public abstract class AbstractDAO<T, U, V> extends ConnectionFactory<V> implemen
 				generatedKeys.next();
 				return;
 			} else {
-				throw new Exception("O Statement está nulo, não é possível efetuar a operação.");
+				throw new Exception("O Statement estï¿½ nulo, nï¿½o ï¿½ possï¿½vel efetuar a operaï¿½ï¿½o.");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -168,7 +168,7 @@ public abstract class AbstractDAO<T, U, V> extends ConnectionFactory<V> implemen
 					retorno = this.parseObject(rs);
 				return retorno;
 			} else {
-				throw new Exception("O Statement está nulo, não é possível efetuar a operação.");
+				throw new Exception("O Statement estï¿½ nulo, nï¿½o ï¿½ possï¿½vel efetuar a operaï¿½ï¿½o.");
 			}
 		} catch (Exception e) {
 			ultimaExcecao = e;
@@ -424,4 +424,6 @@ public abstract class AbstractDAO<T, U, V> extends ConnectionFactory<V> implemen
 	protected abstract PreparedStatement createStatementList(Connection conn) throws Exception;
 
 	protected abstract T parseObject(ResultSet rs) throws Exception;
+	
+
 }
